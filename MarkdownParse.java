@@ -19,7 +19,13 @@ public class MarkdownParse {
             }
 
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
+
+            while (markdown.charAt(nextCloseBracket + 1) != '(') {
+                nextCloseBracket = markdown.indexOf("]", nextCloseBracket + 1);
+            }
+
             int openParen = markdown.indexOf("(", nextCloseBracket);
+
             int closeParen = markdown.indexOf(")", openParen);
 
             //check question mark before
